@@ -1,5 +1,14 @@
-# hltv
-Basic HLTV data parser
+# HLTV
+Basic HLTV scraper
+
+usage
+```
+go get github.com/jmjp/hltv
+```
+
+```go
+import "github.com/jmjp/hltv/hltv"
+```
 
 ## endpoints
 
