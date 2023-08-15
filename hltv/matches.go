@@ -10,7 +10,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func GetMatches() ([]models.UpcomingMatche, error) {
+func FetchMatches() ([]models.UpcomingMatche, error) {
 	res, err := Fetch("/matches")
 	if err != nil {
 		println(err.Error())
