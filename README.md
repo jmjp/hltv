@@ -3,7 +3,7 @@ Basic HLTV data parser
 
 ## endpoints
 
-#FetchTeamById(10831)
+- FetchTeamById(10831)
 
 ```json
 {
@@ -62,7 +62,7 @@ Basic HLTV data parser
 }
 ```
 
-#FetchPlayerById(7998)
+- FetchPlayerById(7998)
 ```json
 {
 	"player": {
@@ -89,7 +89,7 @@ Basic HLTV data parser
 }
 ```
 
-#FetchMatches()
+- FetchMatches()
 ```json
 {
 	"matches": [
