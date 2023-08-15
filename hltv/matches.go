@@ -27,12 +27,14 @@ func FetchMatches() ([]models.UpcomingMatche, error) {
 		matchID, _ := strconv.Atoi(strings.Split(matches, "/")[2])
 		matchTimestamp, _ := selection.Find(".matchTime").First().Attr("data-unix")
 		date := UnixTimeStringToTime(matchTimestamp)
+
 		eventName := selection.Find(".matchEventName").First().Text()
-		team1Name := selection.Find(".team1 .matchTeamName").First().Text()
+		team1Name := selection.Find(".matchTeamName").Eq(0).Text()
 		team1IDStr, _ := selection.Attr("team1")
 		team1ID, _ := strconv.Atoi(team1IDStr)
 
-		team2Name := selection.Find(".team2 .matchTeamName").Last().Text()
+		team2Name := selection.Find(".matchTeamName").Eq(2).Text()
+
 		team2IDStr, _ := selection.Attr("team2")
 		team2ID, _ := strconv.Atoi(team2IDStr)
 		format := selection.Find(".matchMeta").Last().Text()
