@@ -33,7 +33,7 @@ func FetchMatches() ([]models.UpcomingMatche, error) {
 		team1IDStr, _ := selection.Attr("team1")
 		team1ID, _ := strconv.Atoi(team1IDStr)
 
-		team2Name := selection.Find(".matchTeamName").Eq(2).Text()
+		team2Name := selection.Find(".matchTeamName").Eq(1).Text()
 
 		team2IDStr, _ := selection.Attr("team2")
 		team2ID, _ := strconv.Atoi(team2IDStr)
