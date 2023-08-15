@@ -7,7 +7,7 @@ go get github.com/jmjp/hltv
 ```
 
 ```go
-import "github.com/jmjp/hltv/hltv"
+import "github.com/jmjp/hltv"
 ```
 
 ## endpoints
