@@ -76,7 +76,7 @@ func FetchPlayerStatsById(id int) (*models.PlayerSummary, error) {
 	var stats models.StatEntry
 	doc.Find(".summaryStatBreakdownSubHeader").Each(func(i int, s *goquery.Selection) {
 		name := strings.Split(strings.TrimSpace(s.Text()), "\n")[0]
-		stats_value, _ := strconv.ParseFloat(strings.TrimSpace(s.Parent().Find(".summaryStatBreakdownDataValue").Text()), 32)
+		stats_value, _ := strconv.ParseFloat(strings.ReplaceAll(strings.TrimSpace(s.Parent().Find(".summaryStatBreakdownDataValue").Text()), "%", ""), 32)
 		switch name {
 		case "Rating 1.0":
 			stats.Rating1_0 = float32(stats_value)
