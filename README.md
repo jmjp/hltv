@@ -1,8 +1,9 @@
-# HLTV [![Go Reference](https://pkg.go.dev/badge/github.com/jmjp/hltv.svg)](https://pkg.go.dev/github.com/jmjp/hltv)
-Basic HLTV scraper, fetch data from html and transform into model
+# HLTV
+[![Go Reference](https://pkg.go.dev/badge/github.com/jmjp/hltv.svg)](https://pkg.go.dev/github.com/jmjp/hltv)
+<p>Basic HLTV scraper, fetch data from html and transform into model
 
 
-usage
+### usage
 ```
 go get github.com/jmjp/hltv
 ```
