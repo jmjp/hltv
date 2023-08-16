@@ -1,3 +1,8 @@
+<h1 align="center">
+  <img src="https://www.hltv.org/img/static/TopLogo2x.png" alt="HLTV logo" width="200">
+</h1>
+
+
 # HLTV
 [![Go Reference](https://pkg.go.dev/badge/github.com/jmjp/hltv.svg)](https://pkg.go.dev/github.com/jmjp/hltv)
 <p>Basic HLTV scraper, fetch data from html and transform into model
