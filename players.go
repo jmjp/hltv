@@ -73,14 +73,32 @@ func FetchPlayerStatsById(id int) (*models.PlayerSummary, error) {
 	player.Name = doc.Find(".summaryRealname div.text-ellipsis").Text()
 	age, _ := strconv.Atoi(strings.ReplaceAll(doc.Find(".summaryPlayerAge").Text(), " years", ""))
 	player.Age = &age
-	doc.Find(".summaryStatBreakdownRow").Each(func(i int, s *goquery.Selection) {
-		stat := models.StatEntry{
-			Name:        strings.TrimSpace(s.Find(".summaryStatBreakdownSubHeader").Text()),
-			Value:       strings.TrimSpace(s.Find(".summaryStatBreakdownDataValue").Text()),
-			Description: strings.TrimSpace(s.Find(".summaryStatBreakdownDescription").Text()),
+	var stats models.StatEntry
+	doc.Find(".summaryStatBreakdownSubHeader").Each(func(i int, s *goquery.Selection) {
+		name := strings.Split(strings.TrimSpace(s.Text()), "\n")[0]
+		stats_value, _ := strconv.ParseFloat(strings.TrimSpace(s.Parent().Find(".summaryStatBreakdownDataValue").Text()), 32)
+		switch name {
+		case "Rating 1.0":
+			stats.Rating1_0 = float32(stats_value)
+			break
+		case "DPR":
+			stats.DeathsPerRound = float32(stats_value)
+			break
+		case "KAST":
+			stats.Kast = float32(stats_value)
+			break
+		case "Impact":
+			stats.Impact = float32(stats_value)
+			break
+		case "ADR":
+			stats.AvgDamagePerRound = float32(stats_value)
+			break
+		case "KPR":
+			stats.KillsPerRound = float32(stats_value)
+			break
 		}
-		player.Stats = append(player.Stats, stat)
 	})
+	player.Stats = stats
 	team_link, _ := doc.Find(".SummaryTeamname a").Attr("href")
 	if team_link != "" {
 		team := strings.Split(team_link, "/")
@@ -137,16 +155,22 @@ func stats(doc *goquery.Document) *models.PlayerInfoStats {
 		switch statName {
 		case "Rating 2.0":
 			playerStats.Rating = float32(float_stat)
+			break
 		case "Kills per round":
 			playerStats.KillsPerRound = float32(float_stat)
+			break
 		case "Headshots":
 			playerStats.Headshots = float32(float_stat)
+			break
 		case "Maps played":
 			playerStats.MapsPlayed = int_stat
+			break
 		case "Deaths per round":
 			playerStats.DeathsPerRound = float32(float_stat)
+			break
 		case "Rounds contributed":
 			playerStats.RoundsContrib = float32(float_stat)
+			break
 		}
 	})
 	return &playerStats

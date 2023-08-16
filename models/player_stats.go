@@ -4,14 +4,17 @@ type PlayerSummary struct {
 	Player
 	Image   *string        `json:"image"`
 	Team    *Team          `json:"team"`
-	Stats   []StatEntry    `json:"stats"`
+	Stats   StatEntry      `json:"stats"`
 	Metrics *PlayerMetrics `json:"metrics"`
 }
 
 type StatEntry struct {
-	Name        string `json:"name"`
-	Value       string `json:"value"`
-	Description string
+	Rating1_0         float32 `json:"ratio1.0"`
+	DeathsPerRound    float32 `json:"deaths_per_round"`
+	Kast              float32 `json:"kast"`
+	Impact            float32 `json:"impact"`
+	AvgDamagePerRound float32 `json:"avg_damage_per_round"`
+	KillsPerRound     float32 `json:"kills_per_round"`
 }
 
 type PlayerMetrics struct {
