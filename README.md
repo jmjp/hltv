@@ -1,5 +1,6 @@
-# HLTV
-Basic HLTV scraper
+# HLTV [![Go Reference](https://pkg.go.dev/badge/github.com/jmjp/hltv.svg)](https://pkg.go.dev/github.com/jmjp/hltv)
+Basic HLTV scraper, fetch data from html and transform into model
+
 
 usage
 ```
@@ -10,9 +11,13 @@ go get github.com/jmjp/hltv
 import "github.com/jmjp/hltv"
 ```
 
-## endpoints
+## Methods
 
-- FetchTeamById(10831)
+```golang
+FetchTeamById(10831)
+```
+<details><summary>Output</summary>
+<p>
 
 ```json
 {
@@ -70,8 +75,16 @@ import "github.com/jmjp/hltv"
 	}
 }
 ```
+</p>
+</details>
 
-- FetchPlayerById(7998)
+```golang
+FetchPlayerById(7998)
+```
+
+<details><summary>Output</summary>
+<p>
+
 ```json
 {
 	"player": {
@@ -98,7 +111,16 @@ import "github.com/jmjp/hltv"
 }
 ```
 
-- FetchMatches()
+</p>
+</details>
+
+
+```golang
+FetchMatches()
+```
+<details><summary>Output</summary>
+<p>
+
 ```json
 {
 	"matches": [
@@ -1713,3 +1735,7 @@ import "github.com/jmjp/hltv"
 	]
 }
 ```
+
+</p>
+</details>
+
