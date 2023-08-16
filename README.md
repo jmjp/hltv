@@ -115,6 +115,55 @@ FetchPlayerById(7998)
 </p>
 </details>
 
+```golang
+FetchPlayerStatsById(7998)
+```
+
+<details><summary>Output</summary>
+<p>
+
+```json
+{
+	"player": {
+		"id": 7998,
+		"ign": "s1mple",
+		"name": "Oleksandr Kostyliev",
+		"age": 25,
+		"image": "https://img-cdn.hltv.org/playerbodyshot/4NNsZrSGWLr9mZNt0Pe3KS.png?ixlib=java-2.1.0&w=400&s=4484cc99087121a6f9877d3742717444",
+		"team": {
+			"id": 4608,
+			"name": "natus-vincere"
+		},
+		"stats": {
+			"ratio1.0": 1.24,
+			"deaths_per_round": 0.63,
+			"kast": 73.9,
+			"impact": 1.35,
+			"avg_damage_per_round": 85.5,
+			"kills_per_round": 0.85
+		},
+		"metrics": {
+			"total_kills": 38319,
+			"headshot_percent": 41.1,
+			"total_deaths": 28700,
+			"kd_ratio": 1.34,
+			"damage_per_round": 85.5,
+			"grenade_dmg_round": 2.5,
+			"maps_played": 1706,
+			"rounds_played": 45230,
+			"kills_per_round": 0.85,
+			"assists_per_round": 0.1,
+			"deaths_per_round": 0.63,
+			"saved_by_team_mate": 0.08,
+			"saved_team_mates": 0.11,
+			"ratio1.0": 1.24
+		}
+	}
+}
+```
+
+</p>
+</details>
 
 ```golang
 FetchMatches()
@@ -1739,4 +1788,3 @@ FetchMatches()
 
 </p>
 </details>
-
