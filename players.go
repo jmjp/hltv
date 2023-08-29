@@ -103,7 +103,7 @@ func FetchPlayerStatsById(id int) (*models.PlayerSummary, error) {
 	if team_link != "" {
 		team := strings.Split(team_link, "/")
 		id, _ := strconv.Atoi(team[3])
-		name := team[4]
+		name := strings.ReplaceAll(team[4], "-", " ")
 		player.Team = &models.Team{
 			Id:   id,
 			Name: name,
